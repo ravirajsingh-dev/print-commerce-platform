@@ -1,0 +1,212 @@
+@use "../utils/index.scss" as *;
+
+/*----------------------------------------*/
+/*  2.7 breadcrumb
+/*----------------------------------------*/
+
+.breadcrumb-space {
+  // padding: 160px 0 160px;
+  padding: 35px 0 35px;
+}
+
+.breadcrumb__area {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffece5;
+}
+
+.breadcrumb__area.overly {
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb__area.overly:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  content: "";
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0, 22, 10, 0.5) 0%, #00160a 100%);
+}
+
+.breadcrumb__title {
+  color: #001d08;
+  font-family: var(--rr-ff-heading);
+  font-weight: var(--rr-fw-bold);
+  font-size: 68px;
+  line-height: 84px;
+  font-style: normal;
+  margin-bottom: 14px;
+  text-transform: capitalize;
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  .breadcrumb__title {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px),
+  only screen and (min-width: 992px) and (max-width: 1199px) {
+  .breadcrumb__title {
+    font-size: 46px;
+    line-height: 50px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .breadcrumb__title {
+    font-size: 44px;
+    line-height: 50px;
+  }
+}
+
+@media (max-width: 575px) {
+  .breadcrumb__title {
+    font-size: 34px;
+    line-height: 35px;
+  }
+}
+
+@media (max-width: 450px) {
+  .breadcrumb__title {
+    font-size: 32px;
+    line-height: 35px;
+  }
+}
+
+.breadcrumb__menu span {
+  font-size: 17px;
+}
+
+.breadcrumb__menu span a {
+  text-transform: capitalize;
+}
+
+.breadcrumb__menu span a:hover span {
+  color: var(--rr-theme-primary);
+}
+
+.breadcrumb__menu ul {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flexbox;
+  display: inline-flex;
+  gap: 27px;
+  justify-content: center;
+  align-items: center;
+}
+
+.breadcrumb__menu ul li {
+  list-style: none;
+  position: relative;
+  line-height: 1;
+}
+
+.breadcrumb__menu ul li:not(:last-child)::before {
+  display: inline-block;
+  content: "\f105";
+  position: absolute;
+  top: 55.8888%;
+  font-family: var(--rr-ff-fontawesome);
+  inset-inline-end: -17px;
+  color: var(--rr-text-body);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.breadcrumb__menu ul li span {
+  color: var(--rr-text-body);
+  font-family: var(--rr-ff-body);
+  font-weight: var(--rr-fw-regular);
+  line-height: var(--rr-lh-h5);
+  font-size: 20px;
+  font-style: normal;
+}
+
+.breadcrumb__menu ul li span a:hover {
+  color: var(--rr-theme-primary);
+}
+
+.breadcrumb__menu ul li.active span {
+  color: var(--rr-text-body);
+  font-family: var(--rr-ff-body);
+  font-weight: var(--rr-fw-regular);
+  line-height: var(--rr-lh-h5);
+  font-size: 20px;
+  font-style: normal;
+}
+
+.breadcrumb__area .inner-top-shape {
+  z-index: -1;
+  opacity: 0.5 !important;
+  top: -55px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px),
+  only screen and (min-width: 576px) and (max-width: 767px),
+  (max-width: 575px) {
+  .breadcrumb__area .inner-top-shape {
+    display: none;
+  }
+}
+
+.breadcrumb__area .banner-all-shape-wrapper .first-shape {
+  top: 222px;
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  .breadcrumb__area .banner-all-shape-wrapper .first-shape {
+    left: 370px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .breadcrumb__area .banner-all-shape-wrapper .first-shape {
+    left: 245px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px),
+  (max-width: 575px) {
+  .breadcrumb__area .banner-all-shape-wrapper .first-shape {
+    display: none;
+  }
+}
+
+.breadcrumb__area .banner-all-shape-wrapper .second-shape {
+  top: 500px;
+  left: 33px;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px),
+  (max-width: 575px) {
+  .breadcrumb__area .banner-all-shape-wrapper .second-shape {
+    display: none;
+  }
+}
+
+.breadcrumb__area .banner-all-shape-wrapper .right-shape {
+  position: absolute;
+  right: 35px;
+}
+
+.breadcrumb__area .banner-all-shape-wrapper .right-shape img {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px),
+  only screen and (min-width: 576px) and (max-width: 767px),
+  (max-width: 575px) {
+  .breadcrumb__area .banner-all-shape-wrapper .right-shape img {
+    display: none;
+  }
+}

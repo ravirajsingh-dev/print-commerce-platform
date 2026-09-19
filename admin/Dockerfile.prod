@@ -1,0 +1,27 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /tt-admin
+
+COPY ./admin/package*.json ./
+
+ARG VITE_APP_ADMIN_NAME
+ARG VITE_APP_SERVER_URL
+ARG VITE_APP_ADMIN_URL
+ENV VITE_APP_ADMIN_NAME=${VITE_APP_ADMIN_NAME}
+ENV VITE_APP_SERVER_URL=${VITE_APP_SERVER_URL}
+ENV VITE_APP_ADMIN_URL=${VITE_APP_ADMIN_URL}
+
+RUN npm install
+
+RUN npm i -g serve
+
+COPY ./admin .
+
+RUN npm run build
+
+# Cleanup: Remove source files and unnecessary files
+RUN rm -rf src tests .git node_modules
+
+EXPOSE 3001
+
+CMD ["serve", "-s", "dist"]

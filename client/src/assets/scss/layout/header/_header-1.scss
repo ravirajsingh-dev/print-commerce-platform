@@ -1,0 +1,167 @@
+@use "../../utils/index.scss" as *;
+
+/*----------------------------------------*/
+/*  		3.1 header-1
+/*----------------------------------------*/
+
+.header-1.rs-sticky .header__btn .text h5,
+.header-1.rs-sticky .header__btn .text span {
+  color: var(--rr-common-white);
+}
+
+.header-1.rs-sticky .header__btn .text a:hover h5 {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li > a {
+  color: var(--rr-heading-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li > a::before {
+  background: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li a:hover {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li a:hover::before {
+  background: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li:hover > a {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li:hover > a::before {
+  background-color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li.has-dropdown:hover > a::after {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .mega-menu li ul li:hover > a {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .mega-menu li ul li:hover > a::before {
+  background: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .mega-menu li:hover > .mega-menu-title {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li:hover > a {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li:hover > a::after {
+  color: var(--rr-theme-primary);
+}
+
+.header-top-menu ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.header-top-menu ul li a {
+  display: flex;
+  font-size: 14px;
+  color: var(--rr-common-white);
+  font-family: var(--rr-ff-body);
+  font-style: normal;
+  line-height: 17px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.header__logo a img {
+  width: 164px;
+  height: 50px;
+}
+
+/*----------------------------------------*/
+
+/*  3.2 header-2
+/*----------------------------------------*/
+
+.header-1.rs-sticky .header__btn .text h5,
+.header-1.rs-sticky .header__btn .text span {
+  color: var(--rr-common-white);
+}
+
+.header-1.rs-sticky .header__btn .text a:hover h5 {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li > a {
+  color: var(--rr-heading-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li > a::before {
+  background: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li a:hover {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li a:hover::before {
+  background: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li:hover > a {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li:hover > a::before {
+  background-color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .submenu li.has-dropdown:hover > a::after {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .mega-menu li ul li:hover > a {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .mega-menu li ul li:hover > a::before {
+  background: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li .mega-menu li:hover > .mega-menu-title {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li:hover > a {
+  color: var(--rr-theme-primary);
+}
+
+.header-1.rs-sticky .main-menu ul li:hover > a::after {
+  color: var(--rr-theme-primary);
+}
+.header-top-menu {
+  & ul {
+    & li {
+      display: inline-block;
+      margin-right: 20px;
+      & a {
+        display: flex;
+        font-size: 14px;
+        color: var(--rr-common-white);
+        font-family: var(--rr-ff-body);
+        font-style: normal;
+        line-height: 17px;
+        text-transform: capitalize;
+        font-weight: 400;
+      }
+    }
+  }
+}
+.header__logo a img {
+  width: 164px;
+  height: 50px;
+}

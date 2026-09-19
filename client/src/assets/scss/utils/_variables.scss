@@ -1,0 +1,54 @@
+$xxs: 0px;
+$xs: 0px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+$mxm: 1400px;
+$mxs: 480px;
+
+// _font-family.scss
+
+$font-family: (
+  primary: (
+    light: "Roboto-Light",
+    regular: "Roboto-Regular",
+    bold: "Roboto-Bold",
+  ),
+  secondary: (
+    light: "OpenSans-Light",
+    regular: "OpenSans-Regular",
+    bold: "OpenSans-Bold",
+  ),
+);
+
+// _font-scale.scss
+
+$font-scale: (
+  small: (
+    xs: 0.8,
+    sm: 1,
+    md: 1.2,
+  ),
+  large: (
+    lg: 1.5,
+    xl: 2,
+    xxl: 3,
+  ),
+);
+
+// _font-size.scss
+
+$font-size: (
+  body: (
+    sm: 12px,
+    md: 14px,
+    lg: 16px,
+  ),
+  heading: (
+    h1: 32px,
+    h2: 28px,
+    h3: 24px,
+  ),
+);

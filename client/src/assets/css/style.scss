@@ -1,0 +1,91 @@
+@use "../scss/index.scss";
+@use "./elementor.scss";
+@use "./home.scss";
+// @use "../css-copy/index.scss";
+
+.pi-pagination {
+  border-top: 1px solid #d7d7d7;
+  padding-top: 20px;
+}
+
+.rd-table-row:nth-child(even) {
+  background-color: #ffcccc !important;
+}
+
+.rd-table-row:nth-child(odd) {
+  background-color: #ccffcc !important;
+}
+
+@-webkit-keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    -webkit-transform: translate3d(0, -16px, 0);
+    transform: translate3d(0, -16px, 0);
+  }
+}
+
+@keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    -webkit-transform: translate3d(0, -16px, 0);
+    transform: translate3d(0, -16px, 0);
+  }
+}
+
+.bouncing-loader {
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.bouncing-loader > div {
+  width: 13px;
+  height: 13px;
+  margin: 32px 3px;
+  background: #727cf5;
+  border-radius: 50%;
+  animation-name: bouncing-loader;
+  animation-duration: 4s;
+  -webkit-animation: bouncing-loader 0.6s infinite alternate;
+  animation: 0.6s infinite alternate bouncing-loader;
+}
+
+.bouncing-loader > div:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  background: #fa5c7c;
+}
+
+.bouncing-loader > div:nth-child(3) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  background: #0acf97;
+}
+
+.header-logo > img {
+  height: 100px !important;
+  width: 100px !important;
+}
+
+.text-orange {
+  color: #fa5c7c !important;
+}
+
+.my-div {
+  border: 1px solid #ccc;
+  color: white !important;
+  background-color: #c33367;
+  text-align: center;
+}
+
+.sub-header-button {
+  background-color: #fff688;
+  color: #e43e5f;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+textarea.form-control {
+  height: auto !important;
+}

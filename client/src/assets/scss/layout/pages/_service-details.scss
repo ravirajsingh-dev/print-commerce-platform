@@ -1,0 +1,165 @@
+@use "../../utils" as *;
+
+/*----------------------------------------*/
+/*  8.9 service-details
+/*----------------------------------------*/
+.service-details {
+  &-content {
+    &-thumb {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+    &-title {
+      color: var(--rr-heading-primary);
+      font-family: var(--rr-ff-heading);
+      font-size: var(--rr-fs-h2);
+      line-height: var(--rr-lh-h2);
+      font-weight: 600;
+      font-style: normal;
+      margin-bottom: 6px;
+
+      @media (min-width: #{$lg}) {
+        font-size: 38px;
+        line-height: 50px;
+      }
+      @media (min-width: #{$md}) {
+        font-size: 40px;
+        line-height: 52px;
+      }
+      @media (min-width: #{$sm}) {
+        font-size: 40px;
+        line-height: 52px;
+      }
+      @media (min-width: #{$xs}) {
+        font-size: 30px;
+        line-height: 42px;
+      }
+      @media (min-width: #{$xxs}) {
+        font-size: 27px;
+        line-height: 37px;
+      }
+    }
+    p {
+      color: var(--rr-text-body);
+      font-family: var(--rr-ff-body);
+      font-weight: var(--rr-fw-regular);
+      line-height: var(--rr-lh-h6);
+      font-size: 16px;
+      font-style: normal;
+    }
+    h4 {
+      color: var(--rr-heading-primary);
+      font-family: var(--rr-ff-heading);
+      font-weight: var(--rr-fw-sbold);
+      font-size: var(--rr-fs-h4);
+      line-height: var(--rr-lh-h5);
+      font-style: normal;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    &-card-wrapper {
+      gap: 24px;
+
+      &-text {
+        h5 {
+          color: var(--rr-heading-primary);
+          font-family: var(--rr-ff-heading);
+          font-weight: var(--rr-fw-medium);
+          line-height: var(--rr-lh-h6);
+          font-size: 18px;
+          font-style: normal;
+          margin-top: 15px;
+          margin-bottom: 6px;
+        }
+        p {
+          color: var(--rr-text-body);
+          font-family: var(--rr-ff-body);
+          font-weight: var(--rr-fw-regular);
+          line-height: var(--rr-lh-h6);
+          font-size: 16px;
+          font-style: normal;
+          max-width: 205px;
+
+          @media (min-width: #{$xs}) {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sidebar-gallery__item {
+  height: 100% !important;
+  width: 100%;
+  position: absolute !important;
+}
+.middel-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+
+  & i {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--rr-theme-primary);
+  }
+}
+.service-details-bottom-img:hover {
+  & .middel-icon {
+    opacity: 1;
+    visibility: visible;
+  }
+  &.service-details-bottom-img::before {
+    opacity: 0.8;
+    visibility: visible;
+  }
+}
+.service-details-bottom-img::before {
+  position: absolute;
+  width: 328px;
+  height: 240px;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--rr-common-white);
+  border-radius: 10px;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+.service-details-bottom-img img {
+  border-radius: 10px;
+}
+.readmore {
+  font-weight: 500;
+  &:hover {
+    color: var(--rr-theme-primary);
+  }
+}
+.our-project-border {
+  border-radius: 10px;
+}
+.best-deal__active-content .right {
+  @media (min-width: #{$md, $sm, $xs}) {
+    margin-bottom: 0;
+  }
+}
+.service-details-righ-widget:not(:last-of-type) {
+  margin-bottom: 50px;
+  border: 1px solid var(--rr-borders-color);
+  border-radius: 10px;
+  padding: 30px;
+}

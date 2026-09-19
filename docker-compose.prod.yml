@@ -1,0 +1,116 @@
+services:
+  server:
+    image: ${CONTAINER_REGISTRY}server:${VERSION}
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "1G"
+        reservations:
+          cpus: "0.5"
+          memory: "0.5G"
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./server/Dockerfile.prod
+    expose:
+      - ${APP_API_PORT}
+    environment:
+      - APP_ENV
+      - APP_API_PORT
+      - APP_NAME
+      - APP_API_URL
+      - APP_PORTAL_URL
+      - MAIL_HOST
+      - MAIL_PORT
+      - MAIL_USERNAME
+      - MAIL_PASSWORD
+      - MAIL_FROM_ADDRESS
+      - MAIL_FROM_NAME
+      - MAIL_REPLY_TO
+      - MONGO_URI
+      - JWT_SECRET
+      - TWILIO_PHONE_NUMBER
+      - TWILIO_ACCOUNT_SID
+      - TWILIO_AUTH_TOKEN
+      - VERIFY_SERVICE_SID
+      - AWS_REGION
+      - AWS_ACCESSKEY
+      - AWS_SECRETACCESSKEY
+      - AWS_BUCKET_NAME
+      - CLOUDINARY_CLOUD_NAME
+      - CLOUDINARY_API_KEY
+      - CLOUDINARY_API_SECRET
+
+  client:
+    image: ${CONTAINER_REGISTRY}client:${VERSION}
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.4G"
+        reservations:
+          cpus: "0.12"
+          memory: "0.2G"
+    build:
+      context: ./
+      dockerfile: ./client/Dockerfile.prod
+      args:
+        - VERSION
+        - VITE_APP_PORT
+        - VITE_APP_ENV
+        - VITE_APP_APP_NAME
+        - VITE_APP_SERVER_URL
+        - VITE_APP_PORTAL_URL
+    environment:
+      - VITE_APP_PORT
+      - VITE_APP_ENV
+      - VITE_APP_APP_NAME
+      - VITE_APP_SERVER_URL
+      - VITE_APP_PORTAL_URL
+
+  admin:
+    image: ${CONTAINER_REGISTRY}admin:${VERSION}
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: "0.4G"
+        reservations:
+          cpus: "0.12"
+          memory: "0.2G"
+    build:
+      context: ./
+      dockerfile: ./admin/Dockerfile.prod
+      args:
+        - VERSION
+        - VITE_APP_ADMIN_PORT
+        - VITE_APP_ENV
+        - VITE_APP_ADMIN_NAME
+        - VITE_APP_SERVER_URL
+        - VITE_APP_ADMIN_URL
+    environment:
+      - VITE_APP_ADMIN_PORT
+      - VITE_APP_ENV
+      - VITE_APP_ADMIN_NAME
+      - VITE_APP_SERVER_URL
+      - VITE_APP_ADMIN_URL
+
+  caddy:
+    image: caddy/caddy:2.2.1-alpine
+    container_name: caddy-service
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

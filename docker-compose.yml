@@ -1,0 +1,84 @@
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    expose:
+      - ${APP_API_PORT}
+    ports:
+      - ${APP_API_PORT}:${APP_API_PORT}
+    volumes:
+      - ./server:/tt-server
+      - /tt-server/node_modules
+    environment:
+      - APP_ENV
+      - APP_API_PORT
+      - APP_NAME
+      - APP_API_URL
+      - APP_PORTAL_URL
+      - MAIL_HOST
+      - MAIL_PORT
+      - MAIL_USERNAME
+      - MAIL_PASSWORD
+      - MAIL_FROM_ADDRESS
+      - MAIL_FROM_NAME
+      - MAIL_REPLY_TO
+      - MONGO_URI
+      - JWT_SECRET
+      - TWILIO_PHONE_NUMBER
+      - TWILIO_ACCOUNT_SID
+      - TWILIO_AUTH_TOKEN
+      - VERIFY_SERVICE_SID
+      - AWS_REGION
+      - AWS_ACCESSKEY
+      - AWS_SECRETACCESSKEY
+      - AWS_BUCKET_NAME
+      - CLOUDINARY_CLOUD_NAME
+      - CLOUDINARY_API_KEY
+      - CLOUDINARY_API_SECRET
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    expose:
+      - ${VITE_APP_PORT}
+    ports:
+      - ${VITE_APP_PORT}:${VITE_APP_PORT}
+    volumes:
+      - /tt-client/node_modules
+      - ./client:/tt-client
+    environment:
+      - VITE_APP_PORT
+      - VITE_APP_ENV
+      - VITE_APP_APP_NAME
+      - VITE_APP_SERVER_URL
+      - VITE_APP_PORTAL_URL
+    networks:
+      - app-network
+
+  admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    expose:
+      - ${VITE_APP_ADMIN_PORT} 
+    ports:
+      - ${VITE_APP_ADMIN_PORT}:${VITE_APP_ADMIN_PORT}
+    volumes:
+      - /tt-admin/node_modules
+      - ./admin:/tt-admin
+    environment:
+      - VITE_APP_ADMIN_PORT
+      - VITE_APP_ENV
+      - VITE_APP_ADMIN_NAME
+      - VITE_APP_SERVER_URL
+      - VITE_APP_ADMIN_URL
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

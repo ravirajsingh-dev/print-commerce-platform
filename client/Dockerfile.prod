@@ -1,0 +1,27 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /tt-client
+
+COPY ./client/package*.json ./
+
+ARG VITE_APP_APP_NAME
+ARG VITE_APP_SERVER_URL
+ARG VITE_APP_PORTAL_URL
+ENV VITE_APP_APP_NAME=${VITE_APP_APP_NAME}
+ENV VITE_APP_SERVER_URL=${VITE_APP_SERVER_URL}
+ENV VITE_APP_PORTAL_URL=${VITE_APP_PORTAL_URL}
+
+RUN npm install
+
+RUN npm i -g serve
+
+COPY ./client .
+
+RUN npm run build
+
+# Cleanup: Remove source files and unnecessary files
+RUN rm -rf src tests .git node_modules
+
+EXPOSE 3000
+
+CMD ["serve", "-s", "dist"]
